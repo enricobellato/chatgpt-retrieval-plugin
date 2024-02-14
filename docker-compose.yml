@@ -10,5 +10,11 @@ services:
       DATASTORE: ${DATASTORE}
       OPENAI_API_KEY: ${OPENAI_API_KEY}
       BEARER_TOKEN: ${BEARER_TOKEN}
+      CHROMA_IN_MEMORY: ${CHROMA_IN_MEMORY}
+      CHROMA_PERSISTENCE_DIR: ${CHROMA_PERSISTENCE_DIR}
     volumes:
       - .:/code
+      - storage-volume:/storage
+
+volumes:
+  storage-volume:
