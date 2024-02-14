@@ -1,0 +1,3 @@
+rag.example.com {
+  reverse_proxy webapp:8080
+}

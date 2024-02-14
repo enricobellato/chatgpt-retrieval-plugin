@@ -16,5 +16,20 @@ services:
       - .:/code
       - storage-volume:/storage
 
+  caddy:
+    image: caddy:2
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+      - ./Caddyfile:/etc/caddy/Caddyfile
+    depends_on:
+      - app
+
 volumes:
   storage-volume:
+  caddy_data:
+  caddy_config:
