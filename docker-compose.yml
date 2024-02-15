@@ -19,13 +19,13 @@ services:
   caddy:
     image: caddy:2
     restart: always
+    command: caddy reverse-proxy --from https://${REVERSE_PROXY_FQDN}:${REVERSE_PROXY_PORT} --to http://app:8080
     ports:
       - 80:80
       - 443:443
     volumes:
       - caddy_data:/data
       - caddy_config:/config
-      - ./Caddyfile:/etc/caddy/Caddyfile
     depends_on:
       - app
 
